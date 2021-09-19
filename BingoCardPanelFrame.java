@@ -30,6 +30,13 @@ public class BingoCardPanelFrame extends JFrame {
 		BingoPanel screen2 = new BingoPanel();
 		add(screen2);
 		
+		JButton generatorButton = new JButton("Generate");
+		generatorButton.setLocation(800, 200);
+		generatorButton.setSize(200, 100);
+		generatorButton.setFont(new Font("Times New Roman", Font.PLAIN, 40));
+		generatorButton.addActionListener(e -> {
+			System.out.println("AAAAAAAHHHHHHHHHHHHH");
+		});
 		
 //		pack();
 		
