@@ -43,14 +43,7 @@ public class BingoPanel extends JPanel implements KeyListener, MouseListener, Ac
             e.printStackTrace();
         }
 		
-		JButton generatorButton = new JButton("Generate");
-		generatorButton.setLocation(800, 200);
-		generatorButton.setSize(200, 100);
-		generatorButton.setFont(new Font("Times New Roman", Font.PLAIN, 40));
-		generatorButton.addActionListener(e -> {
-			System.out.println("AAAAAAAHHHHHHHHHHHHH");
-		});
-		 
+		
 		
 		
 		
@@ -88,12 +81,16 @@ public class BingoPanel extends JPanel implements KeyListener, MouseListener, Ac
 		}
 		if(x.fiveInARow()) System.out.println(x.fiveInARow());
 		
+		
 		repaint();
 	}
 	
 
 	@Override
 	public void paint(Graphics graphics) {
+//		graphics.setColor(new Color(123, 234, 123));
+		
+		 
 		
 		graphics.drawImage(template, 0, 0, null);
 		Font font = new Font("Comic Sans", Font.PLAIN, 40);
