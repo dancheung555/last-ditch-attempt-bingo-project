@@ -6,8 +6,8 @@ import javax.swing.JButton;
 
 public class BingoCard {
 	
-	private int[][] arr = new int[5][5];
-	private boolean[][] crossedOff = new boolean[5][5];
+	private static int[][] arr = new int[5][5];
+	private static boolean[][] crossedOff = new boolean[5][5];
 	
 	private List<Integer> banks0 = new ArrayList<>(15);
 	private List<Integer> banks1 = new ArrayList<>(15);
@@ -73,19 +73,42 @@ public class BingoCard {
 			arr[i][4] = number;
 		}
 		
-		for(int i = 0; i < 5; i++) {
-			for(int j = 0; j < 5; j++) {
-				System.out.print(arr[i][j] + " ");
-			}
-			System.out.println();
-		}
-		
 	}
 	
 	
 	
 	public static void createRandom(long seed) {
 		random = new Random(seed);
+	}
+	
+	public static int[][] getBingoNumbers() {
+		return arr;
+	}
+	
+	public static boolean isCrossedOff(int i, int j) {
+		return crossedOff[i][j];
+	}
+	
+	public static void setCrossedOff(int i, int j) {
+		crossedOff[i][j] = true;
+	}
+	
+	public static boolean fiveInARow() {
+		
+		for(int i = 0; i < 5; i++) {
+			if(crossedOff[i][0] && crossedOff[i][1] && crossedOff[i][2] &&  crossedOff[i][3] && crossedOff[i][3] && crossedOff[i][4]) return true;
+		}
+		for(int i = 0; i < 5; i++) {
+			if(crossedOff[0][i] && crossedOff[1][i] && crossedOff[2][i] &&  crossedOff[3][i] && crossedOff[3][i] && crossedOff[4][i]) return true;
+		}
+		
+		//diagonal 1
+		if(crossedOff[0][0] && crossedOff[1][1] && crossedOff[2][2] && crossedOff[3][3] && crossedOff[4][4]) return true;
+		
+		//diagonal 2
+		if(crossedOff[4][0] && crossedOff[3][1] && crossedOff[2][2] && crossedOff[1][3] && crossedOff[0][4]) return true;
+		
+		return false;
 	}
 	
 	
