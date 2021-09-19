@@ -36,7 +36,7 @@ public class BingoPanel extends JPanel implements KeyListener, MouseListener, Ac
 		card = x.getArr();
 		
 		try {
-            template = ImageIO.read(BingoPanel.class.getResource("/Image/BingoTemplate.png"));
+            template = ImageIO.read(BingoPanel.class.getResource("/BingoTemplate.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -54,17 +54,7 @@ public class BingoPanel extends JPanel implements KeyListener, MouseListener, Ac
 	public void mouseReleased(MouseEvent e) {}
 	public void mouseEntered(MouseEvent e) {}
 	public void mouseExited(MouseEvent e) {}
-	public void mouseClicked(MouseEvent e) {
-		int x = e.getX();
-		int y = e.getY();
-		double distance = Math.sqrt((x-950)*(x-950)+(y-125)*(y-125));
-		if(distance <= 50) {
-			System.out.println(distance);
-			g.setColor(new Color(0, 125, 125));
-			
-		}
-		repaint();
-	}
+	public void mouseClicked(MouseEvent e) {}
 	
 
 	@Override
@@ -72,19 +62,15 @@ public class BingoPanel extends JPanel implements KeyListener, MouseListener, Ac
 		graphics.drawImage(template, 0, 0, null);
 		drawText(graphics);
 		
-		
-		graphics.setColor(new Color(0, 0, 255));
-		graphics.fillRect(900, 275, 120, 60);
-		
-		
 	}
 	
 	
 	
 	private void drawText(Graphics numbers) {
 		
-		Font font = new Font("Times New Roman", Font.PLAIN, 40);
+		Font font = new Font("Comic Sans", Font.PLAIN, 40);
 		numbers.setFont(font);
+		numbers.setColor(new Color(0, 0, 255));
 		for (int row = 0; row < 5; row++) {
 			for (int col = 0; col < 5; col++) {
 				if(!(row == 2 && col == 2)) numbers.drawString(card[col][row]+"", row * 126 + 89, col * 129 + 227);
