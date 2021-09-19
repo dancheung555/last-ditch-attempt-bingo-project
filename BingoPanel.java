@@ -22,9 +22,11 @@ public class BingoPanel extends JPanel implements KeyListener, MouseListener, Ac
 	private static long numberOfCards = BingoCardTextFrame.numberOfCardsUpdate();
 	private static long days = BingoCardTextFrame.daysUpdate();
 	private static long numberOfWinners = BingoCardTextFrame.numberOfWinnersUpdate();
+	private BingoCard x = new BingoCard();
+	private BallGenerator gen = new BallGenerator();
+	private int[][] bingoArr = new int[5][5];
 	
 	private BufferedImage template;
-	
 	
 	Random random = new Random();
 	
@@ -41,10 +43,23 @@ public class BingoPanel extends JPanel implements KeyListener, MouseListener, Ac
             e.printStackTrace();
         }
 		
-		setVisible(true);
-		setLayout(null);
+		JButton generatorButton = new JButton("Generate");
+		generatorButton.setLocation(800, 200);
+		generatorButton.setSize(200, 100);
+		generatorButton.setFont(new Font("Times New Roman", Font.PLAIN, 40));
+		generatorButton.addActionListener(e -> {
+			System.out.println("AAAAAAAHHHHHHHHHHHHH");
+		});
+		 
+		
+		
+		
+		
+		
 		setSize(1100, 900);
 		addMouseListener(this);
+		repaint();
+		
 	}
 	
 	public void keyTyped(KeyEvent e) {}
@@ -54,16 +69,40 @@ public class BingoPanel extends JPanel implements KeyListener, MouseListener, Ac
 	public void mouseReleased(MouseEvent e) {}
 	public void mouseEntered(MouseEvent e) {}
 	public void mouseExited(MouseEvent e) {}
-	public void mouseClicked(MouseEvent e) {}
+	public void mouseClicked(MouseEvent e) {
+		
+		System.out.println("Hi");
+		
+		
+		bingoArr = x.getBingoNumbers();
+		
+		int num = gen.getNextRandomNumber();
+		System.out.println(num);
+		one: for(int i = 0; i < 5; i++) {
+			for(int j = 0; j < 5; j++) {
+				if(bingoArr[i][j] == num) {
+					x.setCrossedOff(i, j);
+					break one;
+				}
+			}
+		}
+		if(x.fiveInARow()) System.out.println(x.fiveInARow());
+		
+		repaint();
+	}
 	
 
 	@Override
 	public void paint(Graphics graphics) {
+		
 		graphics.drawImage(template, 0, 0, null);
+		Font font = new Font("Comic Sans", Font.PLAIN, 40);
+		graphics.setFont(font);
 		drawText(graphics);
+		
 		for(int row = 0; row < 5; row++) {
 			for(int col = 0; col < 5; col++) {
-				if(BingoCard.isCrossedOff(row, col) && !(row == 2 && col == 2)) {
+				if(x.isCrossedOff(row, col) && !(row == 2 && col == 2)) {
 //					System.out.println("GOT!");
 					graphics.setColor(new Color(255, 0, 0));
 					graphics.drawString(card[col][row]+"", row * 126 + 89, col * 129 + 227);
@@ -73,7 +112,7 @@ public class BingoPanel extends JPanel implements KeyListener, MouseListener, Ac
 				}
 			}
 		}
-		if(BingoCard.fiveInARow()) {
+		if(x.fiveInARow()) {
 			System.out.println("NICE");
 		}
 		
