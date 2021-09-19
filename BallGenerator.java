@@ -13,12 +13,13 @@ public class BallGenerator {
 	}
 	
 	public static int getNextRandomNumber() {
-		System.out.println(allBalls.size());
 		int place = random.nextInt(allBalls.size());
 		int number = allBalls.get(place);
 		allBalls.remove(place);
 		return number;
 	}
+	
+	
 	
 }
 
