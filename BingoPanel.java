@@ -61,6 +61,21 @@ public class BingoPanel extends JPanel implements KeyListener, MouseListener, Ac
 	public void paint(Graphics graphics) {
 		graphics.drawImage(template, 0, 0, null);
 		drawText(graphics);
+		for(int row = 0; row < 5; row++) {
+			for(int col = 0; col < 5; col++) {
+				if(BingoCard.isCrossedOff(row, col) && !(row == 2 && col == 2)) {
+//					System.out.println("GOT!");
+					graphics.setColor(new Color(255, 0, 0));
+					graphics.drawString(card[col][row]+"", row * 126 + 89, col * 129 + 227);
+					graphics.setColor(new Color(0, 0, 255));
+				} else {
+					if(!(row == 2 && col == 2)) graphics.drawString(card[col][row]+"", row * 126 + 89, col * 129 + 227);
+				}
+			}
+		}
+		if(BingoCard.fiveInARow()) {
+			System.out.println("NICE");
+		}
 		
 	}
 	
