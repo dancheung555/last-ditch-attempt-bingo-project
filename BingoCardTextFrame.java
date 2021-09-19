@@ -111,10 +111,9 @@ public class BingoCardTextFrame extends JFrame implements ActionListener {
 			System.out.println("Input is not string");
 		}
 		
-		System.out.println(w + " " + x + " " + y + " " + z);
+//		System.out.println(w + " " + x + " " + y + " " + z);
 	}
 	
 	
 	
 }
-
