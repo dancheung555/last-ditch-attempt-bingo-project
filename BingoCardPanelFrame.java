@@ -54,7 +54,6 @@ public class BingoCardPanelFrame extends JFrame implements MouseListener {
 	public void mouseEntered(MouseEvent e) {}
 	public void mouseExited(MouseEvent e) {}
 	public void mouseClicked(MouseEvent e) {
-		System.out.println("Hello");
 		
 		bingoArr = BingoCard.getBingoNumbers();
 		
@@ -65,12 +64,11 @@ public class BingoCardPanelFrame extends JFrame implements MouseListener {
 				if(bingoArr[i][j] == num) {
 					BingoCard.setCrossedOff(i, j);
 				}
-				
 			}
 		}
-		if(BingoCard.fiveInARow()) {
-			System.out.println(BingoCard.fiveInARow());
-		}
+		if(BingoCard.fiveInARow()) System.out.println(BingoCard.fiveInARow());
+		
+		repaint();
 	}
 	
 }
