@@ -4,4 +4,3 @@ public class BingoRunner {
 		BingoCardTextFrame output = new BingoCardTextFrame("Prerequisites");
 	}
 }
-
