@@ -77,7 +77,7 @@ public class BingoCardTextFrame extends JFrame implements ActionListener {
 
 	
 	public static long seedUpdate() {
-		return seed;
+		return seed*BingoCard.getID();
 	}
 	public static long numberOfCardsUpdate() {
 		return numberOfCards;
