@@ -16,10 +16,12 @@ public class BingoCard {
 	private List<Integer> banks2 = new ArrayList<>(15);		//31-45
 	private List<Integer> banks3 = new ArrayList<>(15);		//46-60
 	private List<Integer> banks4 = new ArrayList<>(15);		//61-75
+	private static int ID = 0;
 	
 	private Random random;
 	
 	public BingoCard() {
+		ID++;
 		createRandom(BingoCardTextFrame.seedUpdate());
 		
 		for(int i = 0; i < 5; i++) {
@@ -33,14 +35,20 @@ public class BingoCard {
 		generateTiles();
 	}
 	
-	
+	public void createRandom(long seed) {
+		random = new Random(seed);
+	}
 	
 	public int[][] getArr() {
 		return arr;
 	}
 	
-	public void createRandom(long seed) {
-		random = new Random(seed);
+	public void setID(int i) {
+		ID = i;
+	}
+	
+	public static int getID() {
+		return ID;
 	}
 	
 	public int[][] getBingoNumbers() {
@@ -54,6 +62,8 @@ public class BingoCard {
 	public void setCrossedOff(int i, int j) {
 		if(!won) crossedOff[i][j] = true;
 	}
+	
+	
 	
 	
 	public boolean fiveInARow() {
