@@ -89,6 +89,10 @@ public class BingoCardTextFrame extends JFrame implements ActionListener {
 		return numberOfWinners;
 	}
 	
+	public int getSeed() {
+		return seed*BingoCard.getID();
+	}
+	
 	
 	
 	public void actionPerformed(ActionEvent e) {
