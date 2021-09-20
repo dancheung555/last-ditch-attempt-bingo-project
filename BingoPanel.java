@@ -46,9 +46,6 @@ public class BingoPanel extends JPanel implements KeyListener, MouseListener, Ac
 		
 		
 		
-		
-		
-		
 		setSize(1100, 900);
 		addMouseListener(this);
 		repaint();
@@ -63,9 +60,6 @@ public class BingoPanel extends JPanel implements KeyListener, MouseListener, Ac
 	public void mouseEntered(MouseEvent e) {}
 	public void mouseExited(MouseEvent e) {}
 	public void mouseClicked(MouseEvent e) {
-		
-		System.out.println("Hi");
-		
 		
 		bingoArr = x.getBingoNumbers();
 		
@@ -118,8 +112,15 @@ public class BingoPanel extends JPanel implements KeyListener, MouseListener, Ac
 	
 	
 	private void drawText(Graphics numbers) {
+		numbers.setColor(new Color(68, 96, 221));
+		numbers.fillRect(780, 170, 290, 80);
+		numbers.setColor(new Color(123, 234, 123));
+		Font font = new Font("Comic Sans", Font.PLAIN, 30);
+		numbers.setFont(font);
+		numbers.drawString("Click anywhere", 800, 200);
+		numbers.drawString("to get a Bingo Ball", 800, 230);
 		
-		Font font = new Font("Comic Sans", Font.PLAIN, 40);
+		font = new Font("Comic Sans", Font.PLAIN, 40);
 		numbers.setFont(font);
 		numbers.setColor(new Color(0, 0, 255));
 		for (int row = 0; row < 5; row++) {
