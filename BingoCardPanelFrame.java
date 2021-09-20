@@ -15,8 +15,6 @@ public class BingoCardPanelFrame extends JFrame {
 	private Container win;
 	private int[][] bingoArr = new int[5][5];
 	
-	private BingoCard x = new BingoCard();
-	
 	private BallGenerator gen;
 	
 	public BingoCardPanelFrame(String framename) {
