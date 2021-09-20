@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -16,27 +17,31 @@ public class BingoCard {
 	private List<Integer> banks2 = new ArrayList<>(15);		//31-45
 	private List<Integer> banks3 = new ArrayList<>(15);		//46-60
 	private List<Integer> banks4 = new ArrayList<>(15);		//61-75
-	private static int ID = 0;
+	private static int ID = 1;
 	
 	private Random random;
 	
 	public BingoCard() {
 		ID++;
 		createRandom(BingoCardTextFrame.seedUpdate());
-		
 		for(int i = 0; i < 5; i++) {
 			for(int j = 0; j < 5; j++) {
 				crossedOff[i][j] = false;
 				if(i == 2 && j == 2) crossedOff[i][j] = true;
 			}
 		}
-		
 		generateBanks();
 		generateTiles();
 	}
 	
 	public void createRandom(long seed) {
 		random = new Random(seed);
+	}
+	
+	
+	
+	public Random getRandom() {
+		return random;
 	}
 	
 	public int[][] getArr() {
@@ -62,8 +67,6 @@ public class BingoCard {
 	public void setCrossedOff(int i, int j) {
 		if(!won) crossedOff[i][j] = true;
 	}
-	
-	
 	
 	
 	public boolean fiveInARow() {
