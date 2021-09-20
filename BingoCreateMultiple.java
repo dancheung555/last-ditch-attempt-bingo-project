@@ -1,13 +1,10 @@
-import java.awt.Container;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.io.*;
+import java.util.*;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.*; 
-
-
+import java.awt.image.*;
 
 public class BingoCreateMultiple extends JFrame {
 	
@@ -16,14 +13,14 @@ public class BingoCreateMultiple extends JFrame {
 	
 	public BingoCreateMultiple(String framename) {
 		super(framename);
-		for(int i = 0; i < cardCount; i++) {
+		System.out.println(cardCount);
+		for(int i = 1; i <= cardCount; i++) {
 			BingoCard bc = new BingoCard();
 			bc.setID(i);
+			System.out.println(bc.getID());
 			JPanel panel = new JPanel();
-			
 		}
 		
 	}
 
 }
-
