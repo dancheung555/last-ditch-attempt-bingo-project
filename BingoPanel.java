@@ -32,8 +32,6 @@ public class BingoPanel extends JPanel implements KeyListener, MouseListener, Ac
 	
 	public BingoPanel() {
 		super();
-		
-		
 		BingoCard x = new BingoCard();
 		card = x.getArr();
 		
@@ -41,15 +39,11 @@ public class BingoPanel extends JPanel implements KeyListener, MouseListener, Ac
             template = ImageIO.read(BingoPanel.class.getResource("/BingoTemplate.png"));
         } catch (IOException e) {
             e.printStackTrace();
-        }
-		
-		
-		
-		
+        }	
 		setSize(1100, 900);
 		addMouseListener(this);
+		BingoCreateMultiple s = new BingoCreateMultiple("BingoCard done?");
 		repaint();
-		
 	}
 	
 	public void keyTyped(KeyEvent e) {}
@@ -89,6 +83,8 @@ public class BingoPanel extends JPanel implements KeyListener, MouseListener, Ac
 		graphics.drawImage(template, 0, 0, null);
 		Font font = new Font("Comic Sans", Font.PLAIN, 40);
 		graphics.setFont(font);
+		graphics.setColor(new Color(200, 0, 0));
+		graphics.drawString("ID: "+x.getID(), 750, 100);
 		drawText(graphics);
 		
 		for(int row = 0; row < 5; row++) {
