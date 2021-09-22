@@ -42,6 +42,7 @@ public class BingoPanel extends JPanel implements KeyListener, MouseListener, Ac
 		setSize(1100, 900);
 		addMouseListener(this);
 		repaint();
+		BingoCreateMultiple s = new BingoCreateMultiple();
 	}
 	
 	public void keyTyped(KeyEvent e) {}
@@ -75,9 +76,6 @@ public class BingoPanel extends JPanel implements KeyListener, MouseListener, Ac
 	@Override
 	public void paint(Graphics graphics) {
 //		graphics.setColor(new Color(123, 234, 123));
-		
-		 
-		
 		graphics.drawImage(template, 0, 0, null);
 		Font font = new Font("Comic Sans", Font.PLAIN, 40);
 		graphics.setFont(font);
